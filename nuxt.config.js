@@ -31,7 +31,13 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  presets: [['es2015', { modules: false }]],
+  plugins: [
+    {
+      src: '~/plugins/mint/index',
+      ssr: true
+    }
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -52,6 +58,19 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {},
+    babel: {
+      // plugins: [
+      //   [
+      //     'component',
+      //     [
+      //       {
+      //         libraryName: 'mint-ui',
+      //         style: true
+      //       }
+      //     ]
+      //   ]
+      // ]
+    }
   }
 }
